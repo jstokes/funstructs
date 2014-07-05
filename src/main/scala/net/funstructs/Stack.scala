@@ -5,13 +5,14 @@ package net.funstructs
  */
 trait Stack {
   type S // type of stack
-  type A // type of element
+  type A // type of elems
 
   def empty: S
   def isEmpty(s: S): Boolean
   def cons(a: A, s: S): S
   def head(s: S): A
   def tail(s: S): S
+  def suffix(s: S): List[List[A]]
 }
 
 trait ListStack extends Stack {
@@ -23,4 +24,8 @@ trait ListStack extends Stack {
   override def cons(a: A, s: S): S = a :: s
   override def head(s: S): A = s.head
   override def tail(s: S): S = s.tail
+  override def suffix(s: S): List[List[A]] = {
+    if (isEmpty(s)) List(List())
+    else s :: suffix(tail(s))
+  }
 }

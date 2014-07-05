@@ -10,10 +10,10 @@ import Prop._
  */
 object StackSpec extends Properties("Stack") with ListStack {
 
-  override type A = AnyVal
+  type A = Int
 
   lazy val genStack: Gen[S] = for {
-    n <- arbitrary[AnyVal]
+    n <- arbitrary[A]
     s <- oneOf(const(empty), genStack)
   } yield cons(n, s)
 
