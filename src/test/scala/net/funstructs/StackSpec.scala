@@ -17,6 +17,8 @@ object StackSpec extends Properties("Stack") with ListStack {
     s <- oneOf(const(empty), genStack)
   } yield cons(n, s)
 
+  implicit def arbStack = Arbitrary(genStack)
+
   property("head of a single item stack is that item") = forAll { n: A =>
     val stack = cons(n, empty)
     head(stack) == n
