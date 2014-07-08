@@ -1,7 +1,5 @@
 package net.funstructs
 
-import scala.collection.generic.CanBuildFrom
-
 /**
  * Created by jeff on 7/5/14.
  */
