@@ -34,4 +34,8 @@ object BSTSpec extends Properties("Stack") {
     val values = tree map identity
     values.toSet.size == values.size
   }
+
+  property("keeps track of its members") = forAll { tree: IntTree =>
+    tree map identity forall (v => tree.member(v))
+  }
 }
