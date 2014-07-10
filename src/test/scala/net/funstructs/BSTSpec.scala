@@ -38,4 +38,13 @@ object BSTSpec extends Properties("Stack") {
   property("keeps track of its members") = forAll { tree: IntTree =>
     tree map identity forall (v => tree.member(v))
   }
+
+  property("member of an empty bst is always false") = forAll { a: Int =>
+    !E.member(a)
+  }
+
+  property("provides a sane toString") = {
+    val tree = Node(4, Node(2, E, E), Node(7, E, E))
+    tree.toString == "(((empty), 2, (empty)), 4, ((empty), 7, (empty)))"
+  }
 }
