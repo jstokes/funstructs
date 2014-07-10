@@ -11,3 +11,11 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq(
   "org.scalacheck" % "scalacheck_2.11" % "1.11.4" % "test"
 )
+
+instrumentSettings
+
+ScoverageKeys.minimumCoverage := 70
+
+ScoverageKeys.failOnMinimumCoverage := false
+
+CoverallsPlugin.coverallsSettings

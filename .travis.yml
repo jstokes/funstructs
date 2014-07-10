@@ -1,3 +1,4 @@
 language: scala
+script: "sbt coveralls"
 scala: 
   - 2.11.0

@@ -1,4 +1,5 @@
-###[![Build Status](https://travis-ci.org/jstokes/funstructs.svg?branch=master)](https://travis-ci.org/jstokes/funstructs)
+[![Build Status](https://travis-ci.org/jstokes/funstructs.svg?branch=master)](https://travis-ci.org/jstokes/funstructs)
+[![Coverage Status](https://img.shields.io/coveralls/jstokes/funstructs.svg)](https://coveralls.io/r/jstokes/funstructs)
 
 ##Funstructs
 
