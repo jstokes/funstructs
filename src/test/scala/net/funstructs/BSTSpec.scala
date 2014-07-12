@@ -11,6 +11,7 @@ import Prop._
 object BSTSpec extends Properties("Stack") {
 
   type IntTree = BST[Int]
+  type IntNode = Node[Int]
 
   lazy val genBST: Gen[IntTree] = for {
     n <- arbitrary[Int]
@@ -23,9 +24,9 @@ object BSTSpec extends Properties("Stack") {
     def check(tree: IntTree): Boolean = tree match {
       case E => true
       case Node(_, E, E) => true
-      case Node(x, E, r: Node[Int]) if x < r.value => check(r)
-      case Node(x, l: Node[Int], E) if x > l.value => check(l)
-      case Node(x, l: Node[Int], r: Node[Int]) if x > l.value && x < r.value => check(l) && check(r)
+      case Node(x, E, r: IntNode) if x < r.value => check(r)
+      case Node(x, l: IntNode, E) if x > l.value => check(l)
+      case Node(x, l: IntNode, r: IntNode) if x > l.value && x < r.value => check(l) && check(r)
       case _ => false
     }
     check(tree)
