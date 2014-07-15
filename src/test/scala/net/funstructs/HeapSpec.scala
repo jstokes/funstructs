@@ -1,5 +1,6 @@
 package net.funstructs
 
+import net.funstructs.heap.Heap
 import org.scalacheck._
 import Arbitrary._
 import Gen._
@@ -10,4 +11,7 @@ import Prop._
  */
 object HeapSpec extends Properties("Stack") {
 
+  property("can construct themselves from elements") = {
+    Heap(1) != null
+  }
 }
