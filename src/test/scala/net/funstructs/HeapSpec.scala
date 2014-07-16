@@ -14,4 +14,8 @@ object HeapSpec extends Properties("Stack") {
   property("can construct themselves from elements") = {
     Heap(1) != null
   }
+
+  property("min of a single element heap is that element") = {
+    Heap(1).findMin == 1
+  }
 }
