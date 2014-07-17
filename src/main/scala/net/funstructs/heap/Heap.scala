@@ -6,7 +6,6 @@ package net.funstructs.heap
 sealed abstract class Heap[+A <% Ordered[A]] {
   def insert[B >: A <% Ordered[B]](x: B): Heap[B]
   def merge[B >: A <% Ordered[B]](other: Heap[B]): Heap[B]
-
   def findMin: A
   def deleteMin: Heap[A]
 }
