@@ -21,7 +21,7 @@ object StackSpec extends Properties("Stack") with ListStack {
 
   property("head of a single item stack is that item") = forAll { n: A =>
     val stack = cons(n, empty)
-    head(stack) == n
+    head(stack) ?= n
   }
 
   property("tail of a single item stack is empty") = forAll { n: A =>
@@ -32,7 +32,7 @@ object StackSpec extends Properties("Stack") with ListStack {
   property("stacks are LIFO (last in first out)") = forAll { aList: List[A] =>
     (aList.size > 0) ==> {
       val stack = aList.foldRight(empty) { (v: A, acc: S) => cons(v, acc) }
-      head(stack) == aList.head
+      head(stack) ?= aList.head
     }
   }
 
@@ -43,6 +43,6 @@ object StackSpec extends Properties("Stack") with ListStack {
   property("can provide suffix lists") = {
     val stack = cons(1, cons(2, cons(3, empty)))
     val actual = suffix(stack)
-    actual == List(List(1, 2, 3), List(2, 3), List(3), List())
+    actual ?= List(List(1, 2, 3), List(2, 3), List(3), List())
   }
 }

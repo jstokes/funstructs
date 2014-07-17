@@ -33,7 +33,7 @@ object BSTSpec extends Properties("Stack") {
   }
   property("contain no duplicate entries") = forAll { tree: IntTree =>
     val values = tree map identity
-    values.toSet.size == values.size
+    values.toSet.size ?= values.size
   }
 
   property("keeps track of its members") = forAll { tree: IntTree =>
@@ -46,6 +46,6 @@ object BSTSpec extends Properties("Stack") {
 
   property("provides a sane toString") = {
     val tree = Node(4, Node(2, E, E), Node(7, E, E))
-    tree.toString == "(((empty), 2, (empty)), 4, ((empty), 7, (empty)))"
+    tree.toString ?= "(((empty), 2, (empty)), 4, ((empty), 7, (empty)))"
   }
 }
