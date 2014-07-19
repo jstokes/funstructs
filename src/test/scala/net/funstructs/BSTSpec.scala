@@ -48,4 +48,8 @@ object BSTSpec extends Properties("Stack") {
     val tree = Node(4, Node(2, E, E), Node(7, E, E))
     tree.toString ?= "(((empty), 2, (empty)), 4, ((empty), 7, (empty)))"
   }
+
+  property("can be constructed by values") = {
+    BST(1, 2, 3) ?= BST(1, 2, 3)
+  }
 }

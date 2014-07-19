@@ -42,3 +42,9 @@ case class Node[+A <% Ordered[A]](value: A, left: BST[A], right: BST[A]) extends
   // TODO not the best impl of map, slow and inefficient
   override def map[B](f: A => B): List[B] = f(value) :: left.map(f) ::: right.map(f)
 }
+
+object BST {
+  def empty[B <% Ordered[B]]: BST[B] = E
+  def apply[B <% Ordered[B]](xs: B*) = 
+    (xs foldLeft BST.empty[B]) { (acc: BST[B], e: B) => acc.insert(e) }
+}
