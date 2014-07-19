@@ -42,7 +42,6 @@ object StackSpec extends Properties("Stack") with ListStack {
 
   property("can provide suffix lists") = {
     val stack = cons(1, cons(2, cons(3, empty)))
-    val actual = suffix(stack)
-    actual ?= List(List(1, 2, 3), List(2, 3), List(3), List())
+    suffix(stack) ?= List(List(1, 2, 3), List(2, 3), List(3), List())
   }
 }
